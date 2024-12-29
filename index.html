@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chrome Extension Icon Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 语言切换按钮 -->
+    <div class="language-switch">
+        <button class="lang-btn active" data-lang="zh-CN">
+            <span>中文</span>
+        </button>
+        <button class="lang-btn" data-lang="en">
+            <span>English</span>
+        </button>
+    </div>
+
+    <!-- 顶部标题区 -->
+    <header>
+        <h1>
+            <span data-i18n="title">Chrome插件图标生成器</span>
+            <span data-i18n="title-en" style="display: none;">Chrome Extension Icon Generator</span>
+        </h1>
+        <p class="subtitle">
+            <span data-i18n="subtitle">上传图片，一键生成不同尺寸的插件图标</span>
+            <span data-i18n="subtitle-en" style="display: none;">Upload an image to generate icons in different sizes for your Chrome extension</span>
+        </p>
+    </header>
+
+    <!-- 主要内容区 -->
+    <main>
+        <!-- 上传区域 -->
+        <div class="upload-area" id="uploadArea">
+            <input type="file" id="imageInput" accept="image/*" hidden>
+            <div class="upload-box">
+                <img src="upload-icon.svg" alt="upload icon" class="upload-icon">
+                <p>
+                    <span data-i18n="upload-text">点击或拖拽图片到这里</span>
+                    <span data-i18n="upload-text-en" style="display: none;">Click or drag image here</span>
+                </p>
+                <p class="upload-tip">
+                    <span data-i18n="upload-tip">支持PNG、JPG、SVG格式</span>
+                    <span data-i18n="upload-tip-en" style="display: none;">Supports PNG, JPG, SVG formats</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- 预览区域 -->
+        <div class="preview-area" id="previewArea" style="display: none;">
+            <h2>
+                <span data-i18n="preview-title">预览效果</span>
+                <span data-i18n="preview-title-en" style="display: none;">Preview</span>
+            </h2>
+            <div class="preview-grid">
+                <div class="preview-item">
+                    <div class="preview-box" id="preview16">
+                        <!-- 16x16预览 -->
+                    </div>
+                    <p>16 x 16</p>
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="icon-checkbox" data-size="16">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+                <div class="preview-item">
+                    <div class="preview-box" id="preview32">
+                        <!-- 32x32预览 -->
+                    </div>
+                    <p>32 x 32</p>
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="icon-checkbox" data-size="32">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+                <div class="preview-item">
+                    <div class="preview-box" id="preview48">
+                        <!-- 48x48预览 -->
+                    </div>
+                    <p>48 x 48</p>
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="icon-checkbox" data-size="48">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+                <div class="preview-item">
+                    <div class="preview-box" id="preview128">
+                        <!-- 128x128预览 -->
+                    </div>
+                    <p>128 x 128</p>
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="icon-checkbox" data-size="128">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+            </div>
+            
+            <!-- 下载按钮 -->
+            <div class="download-area">
+                <label class="checkbox-container select-all-label">
+                    <input type="checkbox" id="selectAll">
+                    <span class="checkmark"></span>
+                    <span data-i18n="select-all">全选</span>
+                    <span data-i18n="select-all-en" style="display: none;">Select All</span>
+                </label>
+                <button id="downloadSelected" class="download-btn">
+                    <span data-i18n="download-selected">下载选中图标</span>
+                    <span data-i18n="download-selected-en" style="display: none;">Download Selected</span>
+                </button>
+                <button id="resetBtn" class="reset-btn">
+                    <span data-i18n="reset">重新上传</span>
+                    <span data-i18n="reset-en" style="display: none;">Upload Again</span>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html> 
